@@ -15,6 +15,8 @@ function App() {
 
     console.log(imageUrlRef.current)
 
+    console.log(image)
+
     /*useEffect(()=>{
 
         console.log('use effect')
@@ -26,7 +28,7 @@ function App() {
         <input type="text" value={imageUrlRef.current}   placeholder={"enter image url"} onChange={(e)=>{
             imageUrlRef.current=e.target.value
         }}/>
-        <input type="text"    placeholder={"enter name"}/>
+        <input type="text"    placeholder={"enter name"} onChange={(e)=>setImage(e.target.value)}/>
         <input type="text"  placeholder={"enter city "}/>
         <input type="text"   placeholder={"enter position "} />
         <button>Set Data</button>
