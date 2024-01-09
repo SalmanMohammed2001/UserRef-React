@@ -13,15 +13,19 @@ function App() {
 
     console.log('render')
 
-    useEffect(()=>{
+    console.log(imageUrlRef.current)
+
+    /*useEffect(()=>{
 
         console.log('use effect')
         imageUrlRef.current=image
-    })
+    })*/
 
   return (
     <div>
-        <input type="text" value={image}   placeholder={"enter image url"} onChange={(e)=>setImage(e.target.value)}/>
+        <input type="text" value={imageUrlRef.current}   placeholder={"enter image url"} onChange={(e)=>{
+            imageUrlRef.current=e.target.value
+        }}/>
         <input type="text"    placeholder={"enter name"}/>
         <input type="text"  placeholder={"enter city "}/>
         <input type="text"   placeholder={"enter position "} />
