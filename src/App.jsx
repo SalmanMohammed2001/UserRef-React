@@ -8,14 +8,29 @@ import {useEffect, useRef, useState} from "react";
 
 function App() {
 
-    const [image,setImage]=useState("")
+    const [myData,setMyData]=useState({
+        image:'',
+        name:'',
+        city:'',
+        position:''
+    })
     const  imageUrlRef=useRef('')
+    const  nameRef=useRef('')
+    const  cityRef=useRef('')
+    const  positionRef=useRef('')
 
     console.log('render')
 
-    console.log(imageUrlRef.current)
 
-    console.log(image)
+
+    const setDataHandle=()=>{
+        setMyData({
+            image: imageUrlRef.current.value,
+            name :nameRef.current.value,
+            city: cityRef.current.value,
+            position: positionRef.current.value
+        })
+    }
 
     /*useEffect(()=>{
 
@@ -25,14 +40,17 @@ function App() {
 
   return (
     <div>
-        <input type="text" value={imageUrlRef.current}   placeholder={"enter image url"} onChange={(e)=>{
-            imageUrlRef.current=e.target.value
-        }}/>
-        <input type="text"    placeholder={"enter name"} onChange={(e)=>setImage(e.target.value)}/>
-        <input type="text"  placeholder={"enter city "}/>
-        <input type="text"   placeholder={"enter position "} />
-        <button>Set Data</button>
-        <p>{imageUrlRef.current}</p>
+        <input type="text" ref={imageUrlRef}   placeholder={"enter image url"}/>
+        <input type="text"  ref={nameRef}   placeholder={"enter name"}/>
+        <input type="text" ref={cityRef} placeholder={"enter city "}/>
+        <input type="text"  ref={positionRef}  placeholder={"enter position "} />
+        <button onClick={setDataHandle}>Set Data</button>
+
+
+        <p>{myData?.name}</p>
+        <p>{myData?.image}</p>
+        <p>{myData?.city}</p>
+        <p>{myData?.position}</p>
 
 
         <div></div>
